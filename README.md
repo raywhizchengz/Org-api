@@ -56,10 +56,9 @@ After cloning to your local machine navigate to the folder you cloned into and o
 After this you will probably get a 500 error since we do not have a database yet.
 ```
 in psql:
-CREATE DATABASE wildlife_tracker;
+CREATE DATABASE org_api_test;
 CREATE TABLE IF NOT EXISTS news(id SERIAL PRIMARY KEY, news VARCHAR, departmentId int);
-CREATE TABLE IF NOT EXISTS departments(id SERIAL PRIMARY KEY,animal_id int,animal_name VARCHAR);
-CREATE TABLE IF NOT EXISTS users(id SERIAL PRIMARY KEY,animal_id int,animal_location VARCHAR ,ranger_name VARCHAR,created_at TIMESTAMPDEFAULT CURRENT_TIMESTAMP);
+CREATE TABLE IF NOT EXISTS departments(id SERIAL PRIMARY KEY,departmentid int,departmentname VARCHAR);
 
 //for the test database
 In psql:
@@ -87,14 +86,13 @@ Create a test class for running tests in the application.
 This is a sample test that tests if the method adding animals to the database works
 
 ```
+
 @Test
-public void saveAnimal() {
-    Animal newAnimal = Animal.setUpNewAnimal();
-    EndangeredAnimal newDanger = new EndangeredAnimal("Rhino","ill","young");
-    newDanger.saveAnimal(newDanger);
-    int initialId = newAnimal.getId();
-    newAnimal.saveAnimal(newAnimal);
-    assertNotEquals(initialId,newAnimal.getId());
+public void update() {
+    News news = setUpNews();
+    String newsString = news.getNews();
+    newsDao.update(newsDao.getAll().get(0).getId(),"New news",3);
+    assertEquals("New news",newsDao.getAll().get(0).getNews());
 }
 
 ```
