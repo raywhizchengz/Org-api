@@ -1,8 +1,10 @@
 package dao;
 
+import DB.DB;
 import models.News;
 import org.junit.After;
 import org.junit.Before;
+import org.junit.Rule;
 import org.junit.Test;
 import org.sql2o.Connection;
 import org.sql2o.Sql2o;
@@ -14,7 +16,7 @@ import static org.junit.Assert.*;
 public class Sql2oNewsDaoTest {
 
     private Connection conn;
-    private Sql2oNewsDao newsDao;
+    private Sql2oNewsDao newsDao ;
 
     @Before
     public void setUp() throws Exception {
@@ -29,6 +31,8 @@ public class Sql2oNewsDaoTest {
         newsDao.clearAll();
         conn.close();
     }
+//    @Rule
+//    public DBRule database = new DBRule();
 
     @Test
     public void add() {
