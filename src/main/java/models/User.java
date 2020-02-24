@@ -4,20 +4,20 @@ import java.util.Objects;
 
 public class User {
     private int id;
-    private String userName;
+    private String username;
     private String address;
     private String phone;
     private String email;
-    private int departmentId;
+    private int departmentid;
     private String position;
     private String roles;
 
     public User(String userName, String address, String phone, String email, int departmentId, String position, String roles){
-        this.userName = userName;
+        this.username = userName;
         this.address = address;
         this.phone = phone;
         this.email = email;
-        this.departmentId = departmentId;
+        this.departmentid = departmentId;
         this.position = position;
         this.roles = roles;
     }
@@ -30,12 +30,12 @@ public class User {
         this.id = id;
     }
 
-    public String getUserName() {
-        return userName;
+    public String getUsername() {
+        return username;
     }
 
-    public void setUserName(String userName) {
-        this.userName = userName;
+    public void setUsername(String username) {
+        this.username = username;
     }
 
     public String getAddress() {
@@ -62,12 +62,12 @@ public class User {
         this.email = email;
     }
 
-    public int getDepartmentId() {
-        return departmentId;
+    public int getDepartmentid() {
+        return departmentid;
     }
 
-    public void setDepartmentId(int departmentId) {
-        this.departmentId = departmentId;
+    public void setDepartmentid(int departmentid) {
+        this.departmentid = departmentid;
     }
 
     public String getPosition() {
@@ -91,8 +91,8 @@ public class User {
         if (this == o) return true;
         if (!(o instanceof User)) return false;
         User user = (User) o;
-        return getDepartmentId() == user.getDepartmentId() &&
-                getUserName().equals(user.getUserName()) &&
+        return getDepartmentid() == user.getDepartmentid() &&
+                getUsername().equals(user.getUsername()) &&
                 getAddress().equals(user.getAddress()) &&
                 getPhone().equals(user.getPhone()) &&
                 getEmail().equals(user.getEmail()) &&
@@ -102,6 +102,6 @@ public class User {
 
     @Override
     public int hashCode() {
-        return Objects.hash(getUserName(), getAddress(), getPhone(), getEmail(), getDepartmentId(), getPosition(), getRoles());
+        return Objects.hash(getUsername(), getAddress(), getPhone(), getEmail(), getDepartmentid(), getPosition(), getRoles());
     }
 }

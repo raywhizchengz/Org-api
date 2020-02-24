@@ -113,7 +113,7 @@ public class App {
         // JSON CREATE
         post("/users/new", "application/json", (req, res)->{
             User user = gson.fromJson(req.body(), User.class);
-            if(user == null || user.getUserName() == null){
+            if(user == null || user.getUsername() == null){
                 throw new ApiException(404, String.format(cannotBeEmptyMsg,"User"));
             }
             userDao.add(user);

@@ -6,8 +6,6 @@ import org.junit.Test;
 import org.sql2o.Connection;
 import org.sql2o.Sql2o;
 
-import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 import static org.junit.Assert.*;
@@ -20,7 +18,7 @@ public class Sql2oUserDaoTest {
     @Before
     public void setup() throws Exception{
         String connectionString = "jdbc:postgresql://localhost:5432/org_api_test";
-        Sql2o sql2o = new Sql2o(connectionString,"moringa","c3l12i9f6f6" );
+        Sql2o sql2o = new Sql2o(connectionString,"ray","discogray" );
         userDao = new Sql2oUserDao(sql2o);
         conn = sql2o.open();
     }
@@ -46,8 +44,8 @@ public class Sql2oUserDaoTest {
     @Test
     public void getAllUsersByDepartment() {
         User user = setUpNewUser();
-        List<User> allUserByDept = userDao.getAllUsersByDepartment(user.getDepartmentId());
-        assertEquals(user.getDepartmentId(),allUserByDept.get(0).getDepartmentId());
+        List<User> allUserByDept = userDao.getAllUsersByDepartment(user.getDepartmentid());
+        assertEquals(user.getDepartmentid(),allUserByDept.get(0).getDepartmentid());
     }
 
     @Test
